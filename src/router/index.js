@@ -5,11 +5,16 @@ import Profile from '../views/Profile.vue';
 import ActivityDetail from '../views/ActivityDetail.vue';
 import GenericService from '../views/GenericService.vue';
 import FacilityDetail from '../views/FacilityDetail.vue';
-
+import Login from '../views/Login.vue';
 const routes = [
     {
         path: '/',
-        redirect: '/home',
+        redirect: '/login',
+    },
+    {
+        path: '/login',
+        name: 'Login',
+        component: Login,
     },
     {
         path: '/home',
