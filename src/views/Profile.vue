@@ -1,33 +1,47 @@
 <template>
   <el-container>
-    <el-header style="height: 200px; padding: 0; overflow: hidden; position: relative;">
+    <!-- 头部区域 -->
+    <el-header class="header">
       <el-image
-        style="width: 100%; height: 100%; object-fit: cover;"
-        src="https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg"  
+        class="header-image"
+        src="https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg"
         fit="cover"
       />
-      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.1);"></div>  <!-- 增加一个半透明的遮罩 -->
+      <div class="header-overlay"></div>
     </el-header>
 
-    <el-main style="padding: 10px;">
-      <el-card style="text-align: center; border-radius: 15px; margin-bottom: 10px;">
-        <el-avatar :size="80" src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c67c9267png.png" />  <!-- 替换为你的头像 -->
-        <div style="margin-top: 10px; font-size: 16px; color: #333;">Hi~ 欢迎来到</div>
-        <div style="font-size: 14px; color: #666;">智美仙桃·15分钟高品质生活服务圈</div>
-        <div style="font-size: 12px; color: #999; margin-bottom: 10px;">登录体验更多精彩内容</div>
-        <el-button type="primary" style="border-radius: 20px; background: linear-gradient(to right, #4CAF50, #8BC34A); border: none;">立即登录</el-button>  <!-- 调整按钮样式 -->
+    <!-- 主要内容区域 -->
+    <el-main class="main">
+      <!-- 用户信息卡片 -->
+      <el-card class="user-card">
+        <el-avatar
+          class="user-avatar"
+          :size="80"
+          src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"
+        />
+        <div class="welcome-text">Hi~ 欢迎来到</div>
+        <div class="app-name">智美仙桃·15分钟高品质生活服务圈</div>
+        <div class="login-tip">登录体验更多精彩内容</div>
+        <el-button type="primary" class="login-button">立即登录</el-button>
       </el-card>
 
-      <el-list>
-        <el-list-item v-for="(item, index) in menuItems" :key="index" style="padding: 15px; border-bottom: 1px solid #eee; cursor: pointer;">
-          <el-icon :name="item.icon" style="margin-right: 10px; color: #666;" />
+      <!-- 菜单列表 -->
+      <el-list class="menu-list">
+        <el-list-item
+          v-for="(item, index) in menuItems"
+          :key="index"
+          class="menu-item"
+          @click="goTo(item.path)"
+        >
+          <el-icon :name="item.icon" class="menu-icon" />
           <span>{{ item.label }}</span>
-          <el-icon name="arrow-right" style="float: right; color: #ccc;" />
+          <el-icon name="arrow-right" class="menu-arrow" />
         </el-list-item>
       </el-list>
     </el-main>
 
-    <el-footer style="text-align: center; padding: 0;">
+    <!-- 底部导航栏 -->
+    <el-footer class="footer">
       <BottomNavigation />
     </el-footer>
   </el-container>
@@ -36,66 +50,130 @@
 <script>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-import {
-  Location,
-  Document,
-  Setting,
-  User,
-} from '@element-plus/icons-vue';
-import BottomNavigation from '../components/BottomNavigation.vue'; // 引入组
+import BottomNavigation from '../components/BottomNavigation.vue';
+
 export default {
   components: {
-    Location,
-    Document,
-    Setting,
-    User,
+    BottomNavigation,
   },
   setup() {
-    const activeIndex = ref('4');
     const router = useRouter();
 
-    const handleSelect = (index) => {
-      if (index === '1') {
-        router.push('/'); //  假设地图服务在根路径
-      } else if (index === '2') {
-        router.push('/activity'); //  假设文娱活动在 /activity 路径
-      } else if (index === '3') {
-        router.push('/convenience'); //  假设便民服务在 /convenience 路径
-      } else if (index === '4') {
-        router.push('/profile');
-      }
-    };
-
     const menuItems = ref([
-      { label: '我的收藏', icon: 'star' },
-      { label: '我的活动', icon: 'video-play' },
-      { label: '关于我们', icon: 'info' }
+      { label: '我的收藏', icon: 'star', path: '/collection' },
+      { label: '我的活动', icon: 'video-play', path: '/activity' },
+      { label: '关于我们', icon: 'info', path: '/about' },
     ]);
+
+    const goTo = (path) => {
+      router.push(path);
+    };
 
     return {
       menuItems,
-      activeIndex,
-      handleSelect
+      goTo,
     };
-  }
+  },
 };
 </script>
 
 <style scoped>
-.el-header {
+/* 整体布局样式 */
+.el-container {
+  height: 100vh;
+}
+
+/* 头部区域样式 */
+.header {
+  height: 200px;
   position: relative;
+  overflow: hidden;
 }
 
-.el-menu--horizontal > .el-menu-item {
-  border-bottom: none;
+.header-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.el-menu--horizontal .el-menu-item, .el-menu--horizontal .el-submenu__title {
-    height: 50px;
-    line-height: 50px;
+.header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
 }
 
-.el-menu--horizontal .el-menu-item is-active {
-  color: #409EFF;
+/* 主要内容区域样式 */
+.main {
+  padding: 10px;
+}
+
+/* 用户信息卡片样式 */
+.user-card {
+  text-align: center;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+.user-avatar {
+  margin-bottom: 10px;
+}
+
+.welcome-text {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+.app-name {
+  font-size: 14px;
+  color: #666;
+}
+
+.login-tip {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+.login-button {
+  border-radius: 20px;
+  background: linear-gradient(to right, #4CAF50, #8BC34A);
+  border: none;
+}
+
+/* 菜单列表样式 */
+.menu-list {
+  border-top: 1px solid #eee;
+}
+
+.menu-item {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.menu-item:hover {
+  background-color: #f9f9f9;
+}
+
+.menu-icon {
+  margin-right: 10px;
+  color: #666;
+}
+
+.menu-arrow {
+  margin-left: auto;
+  color: #ccc;
+}
+
+/* 底部导航栏样式 */
+.footer {
+  text-align: center;
+  padding: 0;
 }
 </style>

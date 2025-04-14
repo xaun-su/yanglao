@@ -32,7 +32,7 @@
       </div>
 
       <!-- 活动列表 -->
-      <el-card v-for="(activity, index) in activities" :key="index" style="margin-bottom: 10px;">
+      <el-card v-for="(activity, index) in activities" :key="index" style="margin-bottom: 10px; cursor: pointer;" @click="goToActivityDetail(activity.id)">
         <el-row :gutter="10">
           <el-col :span="8">
             <el-image
@@ -59,6 +59,9 @@
 <script setup>
 import BottomNavigation from '../components/BottomNavigation.vue'; // 引入组件
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const dates = ref(['3.24', '3.25', '3.26', '3.27', '3.28', '3.29']);
 const selectedDate = ref('3.28');
@@ -68,26 +71,43 @@ const selectedType = ref('商场活动');
 
 const activities = ref([
   {
+    id: '1',
     name: '水羡云造广场草坪音乐节',
     time: '2025.03.28 19:30-20:30',
     organizer: '某某文化传播有限公司',
     image: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
   },
   {
-    name: '水羡云造广场草坪音乐节',
+    id: '2',
+    name: '另一个活动',
     time: '2025.03.28 19:30-20:30',
     organizer: '某某文化传播有限公司',
     image: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
   },
   {
-    name: '水羡云造广场草坪音乐节',
+    id: '3',
+    name: '又一个活动',
     time: '2025.03.28 19:30-20:30',
     organizer: '某某文化传播有限公司',
     image: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
   },
 ]);
+
+const goToActivityDetail = (id) => {
+  router.push({ name: 'ActivityDetail', params: { id: id } });
+};
 </script>
 
 <style scoped>
-/* 移除 el-header 和 el-main 的样式，保留 Activity.vue 特有的样式 */
+/* 设置 el-container 的高度和 Flexbox 布局 */
+.el-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 设置 el-main 的 flex-grow */
+.el-main {
+  flex-grow: 1;
+}
 </style>

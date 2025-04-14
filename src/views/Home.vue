@@ -22,7 +22,12 @@
       </div>
 
       <!-- 设施列表 -->
-      <el-card v-for="(facility, index) in facilities" :key="index" style="margin-bottom: 10px;">
+      <el-card
+        v-for="(facility, index) in filteredFacilities"
+        :key="index"
+        style="margin-bottom: 10px; cursor: pointer;"
+        @click="goToFacilityDetail(facility.name)"
+      >
         <el-row :gutter="10">
           <el-col :span="8">
             <el-image
@@ -57,7 +62,10 @@
 
 <script setup>
 import BottomNavigation from '../components/BottomNavigation.vue'; // 引入组件
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const tags = ref(['宜居', '宜学', '宜养', '宜业', '宜游']);
 const selectedTag = ref('宜学');
@@ -72,6 +80,7 @@ const facilities = ref([
     description: '民办小学',
     distance: '2.9千米',
     image: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
+    tags: ['宜学'], // 添加 tags 属性
   },
   {
     name: '设施名称替代文字',
@@ -82,6 +91,7 @@ const facilities = ref([
     description: '民办小学',
     distance: '2.9千米',
     image: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
+    tags: ['宜居'], // 添加 tags 属性
   },
   {
     name: '设施名称替代文字很长...',
@@ -92,6 +102,7 @@ const facilities = ref([
     description: '民办小学',
     distance: '2.9千米',
     image: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
+    tags: ['宜业'], // 添加 tags 属性
   },
   {
     name: '设施名称替代文字很长...',
@@ -102,10 +113,40 @@ const facilities = ref([
     description: '民办小学',
     distance: '2.9千米',
     image: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
+    tags: ['宜游'], // 添加 tags 属性
+  },
+  {
+    name: '多标签测试',
+    category: '综合',
+    type: '其他',
+    feature: '特色服务',
+    address: '测试地址',
+    description: '这是一个多标签测试设施',
+    distance: '1.0千米',
+    image: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
+    tags: ['宜居', '宜学', '宜养'], // 添加 tags 属性
   },
 ]);
+
+const filteredFacilities = computed(() => {
+  return facilities.value.filter((facility) => facility.tags.includes(selectedTag.value));
+});
+
+const goToFacilityDetail = (facilityName) => {
+  router.push({ name: 'FacilityDetail', params: { facilityName } });
+};
 </script>
 
 <style scoped>
-/* 移除 el-header 和 el-main 的样式，保留 Home.vue 特有的样式 */
+/* 设置 el-container 的高度和 Flexbox 布局 */
+.el-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 设置 el-main 的 flex-grow */
+.el-main {
+  flex-grow: 1;
+}
 </style>
