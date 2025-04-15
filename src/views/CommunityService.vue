@@ -138,16 +138,16 @@ const router = useRouter();
 
 const specialServices = ref([
   {
-    label: '心肺健康',
+    label: '健康分析',
     icon: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
     route: 'generic-service',
     serviceName: 'heart-lung-health', // 添加英文 serviceName
     serviceData: {
-      name: '心肺健康', // 添加中文 name
-      title: '心肺健康',
-      description: '提供心肺健康相关的服务和信息。',
+      name: '健康分析', // 添加中文 name
+      title: '健康分析',
+      description: '提供健康分析相关的服务和信息。',
       image: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
-      content: '这里是心肺健康服务的详细内容。\n\n您可以咨询相关医生，了解更多心肺健康知识。\n\n我们还提供在线预约服务，方便您进行体检。',
+      content: '这里是健康分析服务的详细内容。\n\n您可以咨询相关医生，了解更多心肺健康知识。\n\n我们还提供在线预约服务，方便您进行体检。',
       contact: {
         phone: '123-456-7890',
         time: '周一至周五 9:00-17:00',
@@ -155,14 +155,14 @@ const specialServices = ref([
     },
   },
   {
-    label: '养老互助',
+    label: '老年学堂',
     icon: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
     route: 'generic-service',
     serviceName: 'elderly-mutual-aid', // 添加英文 serviceName
     serviceData: {
-      name: '养老互助', // 添加中文 name
-      title: '养老互助',
-      description: '提供养老互助相关的服务和信息。',
+      name: '老年学堂', // 添加中文 name
+      title: '老年学堂',
+      description: '提供老年学堂相关的服务和信息。',
       image: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
       content: '这里是养老互助服务的详细内容。\n\n我们提供上门护理、康复训练等服务。\n\n欢迎加入我们的养老互助社区，共同营造温馨的养老环境。',
       contact: {
@@ -172,14 +172,14 @@ const specialServices = ref([
     },
   },
   {
-    label: '就业互助',
+    label: '用药提醒',
     icon: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
     route: 'generic-service',
     serviceName: 'employment-mutual-aid', // 添加英文 serviceName
     serviceData: {
-      name: '就业互助', // 添加中文 name
-      title: '就业互助',
-      description: '提供就业互助相关的服务和信息。',
+      name: '用药提醒', // 添加中文 name
+      title: '用药提醒',
+      description: '提供用药提醒相关的服务和信息。',
       image: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
       content: '这里是就业互助服务的详细内容。\n\n我们提供职业技能培训、就业指导等服务。\n\n欢迎参加我们的就业互助活动，共同提升就业能力。',
       contact: {
@@ -206,14 +206,14 @@ const specialServices = ref([
     },
   },
   {
-    label: '卡卷互助',
+    label: '营养餐配送',
     icon: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
     route: 'generic-service',
     serviceName: 'card-coupon-mutual-aid', // 添加英文 serviceName
     serviceData: {
-      name: '卡卷互助', // 添加中文 name
-      title: '卡卷互助',
-      description: '提供卡卷互助相关的服务和信息。',
+      name: '营养餐配送', // 添加中文 name
+      title: '营养餐配送',
+      description: '提供营养餐配送相关的服务和信息。',
       image: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
       content: '这里是卡卷互助服务的详细内容。\n\n我们提供卡卷转让、卡卷交换等服务。\n\n欢迎参加我们的卡卷互助活动，共同分享卡卷优惠。',
       contact: {
@@ -228,14 +228,14 @@ const specialServices = ref([
     route: 'community-comprehensive', // 修改 route
   },
   {
-    label: '党建互助',
+    label: '邻里互助',
     icon: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
     route: 'generic-service',
     serviceName: 'party-building-mutual-aid', // 添加英文 serviceName
     serviceData: {
-      name: '党建互助', // 添加中文 name
-      title: '党建互助',
-      description: '提供党建互助相关的服务和信息。',
+      name: '邻里互助', // 添加中文 name
+      title: '邻里互助',
+      description: '提供邻里互助相关的服务和信息。',
       image: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
       content: '这里是党建互助服务的详细内容。\n\n我们提供党员学习、党建活动等服务。\n\n欢迎参加我们的党建互助活动，共同加强党性修养。',
       contact: {
@@ -248,13 +248,13 @@ const specialServices = ref([
 
 const basicServices = ref([
   { label: '预约气瓶', icon: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg' },
-  { label: '门诊挂号', icon: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg' },
-  { label: '渝快办', icon: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg' },
-  { label: '警快办', icon: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg' },
+  { label: '私人医生', icon: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg' },
+  { label: '药品直购', icon: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg' },
+  { label: '护工预约', icon: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg' },
   { label: '交通12123', icon: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg' },
-  { label: '实名查询', icon: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg' },
+  { label: '养老金查询', icon: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg' },
   { label: 'G公交', icon: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg' },
-  { label: '智慧停车', icon: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg' },
+  { label: '活动预约', icon: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg' },
 ]);
 
 const communityList = ref([
