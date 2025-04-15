@@ -17,12 +17,26 @@
         <el-avatar
           class="user-avatar"
           :size="80"
-          src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"
+          :src="user ? (user.avatar || 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png') : 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'"
         />
         <div class="welcome-text">Hi~ 欢迎来到</div>
         <div class="app-name">智美仙桃·15分钟高品质生活服务圈</div>
-        <div class="login-tip">登录体验更多精彩内容</div>
-        <el-button type="primary" class="login-button">立即登录</el-button>
+        <div class="login-tip" v-if="!user">登录体验更多精彩内容</div>
+        <div class="user-info" v-else>
+          <div>用户名：{{ user.username }}</div>
+          <div>邮箱：{{ user.email }}</div>
+        </div>
+        <el-button
+          type="primary"
+          class="login-button"
+          @click="goToLogin"
+          v-if="!user"
+        >
+          立即登录
+        </el-button>
+        <el-button type="danger" class="logout-button" @click="logout" v-else>
+          退出登录
+        </el-button>
       </el-card>
 
       <!-- 菜单列表 -->
@@ -48,7 +62,7 @@
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import BottomNavigation from '../components/BottomNavigation.vue';
 
@@ -58,9 +72,18 @@ export default {
   },
   setup() {
     const router = useRouter();
+    const user = ref(null);
+
+    onMounted(() => {
+      // 从 localStorage 中获取用户信息
+      const storedUser = localStorage.getItem('user');
+      if (storedUser) {
+        user.value = JSON.parse(storedUser);
+      }
+    });
 
     const menuItems = ref([
-      { label: '我的收藏', icon: 'star', path: '/collection' },
+      { label: '我的收藏', icon: 'star', path: '/collection' }, // 你可能需要根据实际情况修改这些路由
       { label: '我的活动', icon: 'video-play', path: '/activity' },
       { label: '关于我们', icon: 'info', path: '/about' },
     ]);
@@ -69,9 +92,22 @@ export default {
       router.push(path);
     };
 
+    const goToLogin = () => {
+      router.push('/login');
+    };
+
+    const logout = () => {
+      localStorage.removeItem('user');
+      user.value = null;
+      router.push('/home'); // 重定向到首页
+    };
+
     return {
       menuItems,
       goTo,
+      goToLogin,
+      user,
+      logout,
     };
   },
 };
@@ -142,6 +178,17 @@ export default {
   border-radius: 20px;
   background: linear-gradient(to right, #4CAF50, #8BC34A);
   border: none;
+}
+
+.logout-button {
+  border-radius: 20px;
+  background-color: #f44336;
+  border: none;
+  color: white;
+}
+
+.user-info {
+  margin-bottom: 10px;
 }
 
 /* 菜单列表样式 */

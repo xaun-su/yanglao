@@ -6,66 +6,74 @@ import ActivityDetail from '../views/ActivityDetail.vue';
 import GenericService from '../views/GenericService.vue';
 import FacilityDetail from '../views/FacilityDetail.vue';
 import Login from '../views/Login.vue';
+import Register from '../views/Register.vue'; // 导入注册页面组件
+
 const routes = [
-    {
-        path: '/',
-        redirect: '/login',
-    },
-    {
-        path: '/login',
-        name: 'Login',
-        component: Login,
-    },
-    {
-        path: '/home',
-        name: 'Home',
-        component: () => import('../views/Home.vue'),
-    },
-    {
-        path: '/activity',
-        name: 'Activity',
-        component: () => import('../views/Activity.vue'),
-    },
-    {
-        path: '/activity/:id',
-        name: 'ActivityDetail',
-        component: () => import('../views/ActivityDetail.vue'),
-    },
-    {
-        path: '/community-service',
-        name: 'CommunityService',
-        component: () => import('../views/CommunityService.vue'),
-    },
-    {
-        path: '/generic-service/:serviceName',
-        name: 'GenericService',
-        component: () => import('../views/GenericService.vue'),
-        props: true,
-    },
-    {
-        path: '/facility/:facilityName',
-        name: 'FacilityDetail',
-        component: () => import('../views/FacilityDetail.vue'),
-        props: true,
-  },{
-        path: '/community-comprehensive',
-        name: 'CommunityComprehensiveService',
-        component: () => import('../views/CommunityComprehensiveService.vue')
+  {
+    path: '/',
+    redirect: '/home',
   },
-    {
-        path: '/profile',
-        name: 'Profile',
-        component: () => import('../views/Profile.vue'),
-    },
-    {
-        path: '/:pathMatch(.*)*',
-        redirect: '/home',
-    },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login,
+  },
+  {
+    path: '/register', // 添加注册页面的路由
+    name: 'Register',
+    component: Register,
+  },
+  {
+    path: '/home',
+    name: 'Home',
+    component: () => import('../views/Home.vue'),
+  },
+  {
+    path: '/activity',
+    name: 'Activity',
+    component: () => import('../views/Activity.vue'),
+  },
+  {
+    path: '/activity/:id',
+    name: 'ActivityDetail',
+    component: () => import('../views/ActivityDetail.vue'),
+  },
+  {
+    path: '/community-service',
+    name: 'CommunityService',
+    component: () => import('../views/CommunityService.vue'),
+  },
+  {
+    path: '/generic-service/:serviceName',
+    name: 'GenericService',
+    component: () => import('../views/GenericService.vue'),
+    props: true,
+  },
+  {
+    path: '/facility/:facilityName',
+    name: 'FacilityDetail',
+    component: () => import('../views/FacilityDetail.vue'),
+    props: true,
+  },
+  {
+    path: '/community-comprehensive',
+    name: 'CommunityComprehensiveService',
+    component: () => import('../views/CommunityComprehensiveService.vue'),
+  },
+  {
+    path: '/profile',
+    name: 'Profile',
+    component: () => import('../views/Profile.vue'),
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: '/home',
+  },
 ];
 
 const router = createRouter({
-    history: createWebHistory(),
-    routes,
+  history: createWebHistory(),
+  routes,
 });
 
 export default router;
