@@ -64,7 +64,10 @@
 import BottomNavigation from '../components/BottomNavigation.vue'; // 引入组件
 import { ref, computed } from 'vue';
 import { useRouter } from 'vue-router';
-
+import png1 from '../assets/img/老年.jpg'; // 引入图片资源
+import png2 from '../assets/img/宜学.png'; // 引入图片资源
+import png3 from '../assets/img/宜游.png'; // 引入图片资源
+import png4 from '../assets/img/宜养.jpg'; // 引入图片资源
 const router = useRouter();
 
 const tags = ref(['宜居', '宜学', '宜养', '宜业', '宜游']);
@@ -72,25 +75,25 @@ const selectedTag = ref('宜学');
 
 const facilities = ref([
   {
-    name: '金州朝阳中学',
+    name: '金朝老年大学',
     category: '宜学',
     type: '文化活动',
     feature: '基础保障类',
     address: '曹阳四村245-23号',
-    description: '民办小学',
-    distance: '2.9千米',
-    image: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
+    description: '老年大学',
+    distance: '1.9千米',
+    image: png1,
     tags: ['宜学'], // 添加 tags 属性
   },
   {
-    name: '设施名称替代文字',
+    name: '仙桃之家',
     category: '宜居',
-    type: '文化活动',
+    type: '生活基础',
     feature: '基础保障类',
     address: '曹阳四村245-23号',
-    description: '民办小学',
+    description: '居住小区',
     distance: '2.9千米',
-    image: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
+    image: png2,
     tags: ['宜居'], // 添加 tags 属性
   },
   {
@@ -105,25 +108,27 @@ const facilities = ref([
     tags: ['宜业'], // 添加 tags 属性
   },
   {
-    name: '设施名称替代文字很长...',
+    name: '仙桃出游',
     category: '宜游',
     type: '文化活动',
-    feature: '基础保障类',
+    feature: '出游旅行类',
     address: '曹阳四村245-23号',
-    description: '民办小学',
+    description: '旅行',
     distance: '2.9千米',
-    image: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
+    image: png3,
+
     tags: ['宜游'], // 添加 tags 属性
   },
   {
-    name: '多标签测试',
+    name: '健康生活',
     category: '综合',
     type: '其他',
     feature: '特色服务',
-    address: '测试地址',
-    description: '这是一个多标签测试设施',
+    address: '仙桃社区',
+    description: '享受晚年，关注健康',
     distance: '1.0千米',
-    image: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
+    image: png4,
+
     tags: ['宜居', '宜学', '宜养'], // 添加 tags 属性
   },
 ]);

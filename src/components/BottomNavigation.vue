@@ -12,8 +12,8 @@
     <el-menu-item index="1">
       <template #title>
         <div style="display: flex; flex-direction: column; align-items: center;">
-          <img src="#" style="width: 24px; height: 24px; margin-bottom: 2px;" />
-          <span>地图服务</span>
+          <img src="../assets/img/首页.png" style="width: 24px; height: 24px; margin-bottom: 2px;" />
+          <span>首页</span>
         </div>
       </template>
     </el-menu-item>
@@ -21,7 +21,7 @@
     <el-menu-item index="2">
       <template #title>
         <div style="display: flex; flex-direction: column; align-items: center;">
-          <img src="#" style="width: 24px; height: 24px; margin-bottom: 2px;" />
+          <img src="../assets/img/运动.png" style="width: 24px; height: 24px; margin-bottom: 2px;" />
           <span>文娱活动</span>
         </div>
       </template>
@@ -30,7 +30,7 @@
     <el-menu-item index="3">
       <template #title>
         <div style="display: flex; flex-direction: column; align-items: center;">
-          <img src="#" style="width: 24px; height: 24px; margin-bottom: 2px;" />
+          <img src="../assets/img/便民服务.png" style="width: 24px; height: 24px; margin-bottom: 2px;" />
           <span>便民服务</span>
         </div>
       </template>
@@ -39,7 +39,7 @@
     <el-menu-item index="4">
       <template #title>
         <div style="display: flex; flex-direction: column; align-items: center;">
-          <img src="#" style="width: 24px; height: 24px; margin-bottom: 2px;" />
+          <img src="../assets/img/我的.png" style="width: 24px; height: 24px; margin-bottom: 2px;" />
           <span>我的</span>
         </div>
       </template>

@@ -60,6 +60,9 @@
 import BottomNavigation from '../components/BottomNavigation.vue'; // 引入组件
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import png1 from '../assets/img/png1.jpg';
+import png2 from '../assets/img/png2.jpg';  
+import png3 from '../assets/img/png3.jpg';  
 
 const router = useRouter();
 
@@ -70,27 +73,30 @@ const activityTypes = ref(['商场活动', '让利惠民', '区县风情']);
 const selectedType = ref('商场活动');
 
 const activities = ref([
-  {
-    id: '1',
-    name: '水羡云造广场草坪音乐节',
-    time: '2025.03.28 19:30-20:30',
-    organizer: '某某文化传播有限公司',
-    image: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
-  },
-  {
-    id: '2',
-    name: '另一个活动',
-    time: '2025.03.28 19:30-20:30',
-    organizer: '某某文化传播有限公司',
-    image: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
-  },
-  {
-    id: '3',
-    name: '又一个活动',
-    time: '2025.03.28 19:30-20:30',
-    organizer: '某某文化传播有限公司',
-    image: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
-  },
+{
+      id: '1',
+      name: '幸福晚年生活节',
+      time: '2025.03.28 19:30-20:30',
+      organizer: '某某文化传播有限公司',
+      image: png1,
+      description: '关爱长者健康与快乐。',
+    },
+    {
+      id: '2',
+      name: '温暖陪伴活动日',
+      time: '2025.04.01 20:00-22:00',
+      organizer: '某某文化传播有限公司',
+      image: png2,
+      description: '弘扬友爱，分享生活点滴',
+    },
+    {
+      id: '3',
+      name: '乐享退休生活论坛',
+      time: '2025.04.05 14:00-16:00',
+      organizer: '某某文化传播有限公司',
+      image: png3,
+      description: '探索健康、乐趣与社交的全新方式。',
+    },
 ]);
 
 const goToActivityDetail = (id) => {

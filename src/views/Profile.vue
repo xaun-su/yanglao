@@ -2,11 +2,7 @@
   <el-container>
     <!-- 头部区域 -->
     <el-header class="header">
-      <el-image
-        class="header-image"
-        src="https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg"
-        fit="cover"
-      />
+      <img src="../assets/img/img1.jpg" style="object-fit: cover; width: 100%; height: 100%;">
       <div class="header-overlay"></div>
     </el-header>
 
@@ -65,6 +61,7 @@
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import BottomNavigation from '../components/BottomNavigation.vue';
+
 
 export default {
   components: {

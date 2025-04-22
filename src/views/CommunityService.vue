@@ -1,15 +1,11 @@
 <template>
   <el-container>
-    <el-header style="text-align: center; font-size: 20px;">
+    <el-header style="text-align: center; font-size: 20px;" class="header">
       智美仙桃·15分钟高品质生活服务圈
     </el-header>
 
-    <el-main style="padding: 10px;">
-      <el-image
-        style="width: 100%; height: 150px; border-radius: 8px; margin-bottom: 10px;"
-        src="https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg"
-        fit="cover"
-      />
+    <el-main style="padding: 10px;" class="main">
+      <img src="../assets/img/屏幕截图 2025-04-22 092237.png" style="object-fit: cover; width: 100%; height: 100%;">
 
       <el-card style="margin-bottom: 10px;">
         <template #header>
@@ -56,11 +52,7 @@
         </template>
         <el-row>
           <el-col :span="8">
-            <el-image
-              style="width: 100%; height: 80px; border-radius: 8px;"
-              src="https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg"
-              fit="cover"
-            />
+            <img src="../assets/img/img1.jpg" style="object-fit: cover; width: 100%; height: 100%;">
           </el-col>
           <el-col :span="16" style="padding-left: 10px; font-size: 12px; color: #666;">
             仙桃街道，是重庆市渝北区，建于2020年6月。辖区包括十个社区：金玉路社区、香奈儿社区...
@@ -83,7 +75,7 @@
       </el-card>
     </el-main>
 
-    <el-footer style="text-align: center; padding: 0;">
+    <el-footer style="text-align: center; padding: 0;" class="footer">
       <BottomNavigation />
     </el-footer>
 
@@ -133,13 +125,27 @@ import {
   User,
 } from '@element-plus/icons-vue';
 import BottomNavigation from '../components/BottomNavigation.vue'; // 引入组件
-
+import png1 from '../assets/img/健康分析.png';
+import png2 from '../assets/img/老年大学.png';
+import png3 from '../assets/img/用药提醒.png';
+import png4 from '../assets/img/互助.png';
+import png5 from '../assets/img/健康配餐.png';
+import png6 from '../assets/img/社区服务.png';
+import png7 from '../assets/img/互助.png';
+import png8 from '../assets/img/瓶.png';
+import png9 from '../assets/img/医生.png';
+import png10 from '../assets/img/用药提醒.png';
+import png11 from '../assets/img/我的.png';
+import png12 from '../assets/img/车.png';
+import png13 from '../assets/img/钱.png';
+import png14 from '../assets/img/公交车.png';
+import png15 from '../assets/img/活动.png';
 const router = useRouter();
 
 const specialServices = ref([
   {
     label: '健康分析',
-    icon: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
+    icon: png1,
     route: 'generic-service',
     serviceName: 'heart-lung-health', // 添加英文 serviceName
     serviceData: {
@@ -156,7 +162,7 @@ const specialServices = ref([
   },
   {
     label: '老年学堂',
-    icon: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
+    icon: png2,
     route: 'generic-service',
     serviceName: 'elderly-mutual-aid', // 添加英文 serviceName
     serviceData: {
@@ -173,7 +179,7 @@ const specialServices = ref([
   },
   {
     label: '用药提醒',
-    icon: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
+    icon: png3,
     route: 'generic-service',
     serviceName: 'employment-mutual-aid', // 添加英文 serviceName
     serviceData: {
@@ -190,7 +196,7 @@ const specialServices = ref([
   },
   {
     label: '社区军人互助',
-    icon: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
+    icon: png4,
     route: 'generic-service',
     serviceName: 'community-veteran-mutual-aid', // 添加英文 serviceName
     serviceData: {
@@ -207,7 +213,7 @@ const specialServices = ref([
   },
   {
     label: '营养餐配送',
-    icon: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
+    icon: png5,
     route: 'generic-service',
     serviceName: 'card-coupon-mutual-aid', // 添加英文 serviceName
     serviceData: {
@@ -224,12 +230,12 @@ const specialServices = ref([
   },
   {
     label: '社区综合服务',
-    icon: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
+    icon: png6,
     route: 'community-comprehensive', // 修改 route
   },
   {
     label: '邻里互助',
-    icon: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
+    icon: png7,
     route: 'generic-service',
     serviceName: 'party-building-mutual-aid', // 添加英文 serviceName
     serviceData: {
@@ -247,14 +253,14 @@ const specialServices = ref([
 ]);
 
 const basicServices = ref([
-  { label: '预约气瓶', icon: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg' },
-  { label: '私人医生', icon: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg' },
-  { label: '药品直购', icon: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg' },
-  { label: '护工预约', icon: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg' },
-  { label: '交通12123', icon: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg' },
-  { label: '养老金查询', icon: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg' },
-  { label: 'G公交', icon: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg' },
-  { label: '活动预约', icon: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg' },
+  { label: '预约气瓶', icon: png8 },
+  { label: '私人医生', icon: png9 },
+  { label: '药品直购', icon: png10 },
+  { label: '护工预约', icon: png11 },
+  { label: '交通12123', icon: png12 },
+  { label: '养老金查询', icon: png13 },
+  { label: 'G公交', icon: png14},
+  { label: '活动预约', icon:png15 },
 ]);
 
 const communityList = ref([
@@ -302,5 +308,9 @@ const goToService = (item) => {
 </script>
 
 <style scoped>
-/* 你的样式 */
+.main{
+  flex: 1;
+  overflow: hidden;
+  overflow-y: auto;
+}
 </style>
